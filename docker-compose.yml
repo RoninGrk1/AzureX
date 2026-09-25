@@ -1,0 +1,30 @@
+services:
+  web:
+    build: .
+    ports: ["3000:3000"]
+    environment:
+      NODE_ENV: production
+      SESSION_SECRET: ${SESSION_SECRET:-change-me}
+      DATABASE_URL: postgres://azurex:azurex@db:5432/azurex
+      REDIS_URL: redis://cache:6379
+      EXECUTION_MODE: paper
+    depends_on: [db, cache]
+    restart: unless-stopped
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: azurex
+      POSTGRES_PASSWORD: azurex
+      POSTGRES_DB: azurex
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./src/prod/db/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+    restart: unless-stopped
+  cache:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes: [redisdata:/data]
+    restart: unless-stopped
+volumes:
+  pgdata:
+  redisdata:
