@@ -1,1 +1,32 @@
-# AzureX\n\nPrivate investment operating system for HNWI cryptocurrency and equities portfolios.\n\nAzureX is an **AI-assisted** operating system, not an autonomous unrestricted trading bot.\n\n```\nDATA \u2192 INTELLIGENCE \u2192 AI ANALYSIS \u2192 RISK \u2192 HUMAN AUTHORIZATION \u2192 EXECUTION \u2192 AUDIT\n```\n\nFail closed. Least privilege. Human approval. Full auditability.\n\n## Quick start\n\n```bash\nnpm install\ncp env.example .env\nnpm test\nnpm run dev\n```\n\nOpen http://localhost:3000\n\nDemo password for all users: `AzureX-Demo-2026!`\n\n| Email | Role |\n| --- | --- |\n| principal@azurex.local | Principal |\n| risk@azurex.local | Risk officer |\n| audit@azurex.local | Auditor |\n\n## What is implemented\n\n- Glassmorphism Command Centre\n- Nine-agent AI fund team with governed outputs\n- Trading terminal + approval gateway\n- Wallet centre with allowlists; private keys are never stored\n- Fail-closed risk engine\n- Emergency controls including a global kill switch\n- HMAC sessions, RBAC, hash-chained audit log\n- Unit tests for risk, auth, governance, and audit integrity\n\n## API map\n\n`/api/auth` `/api/users` `/api/portfolio` `/api/markets` `/api/research` `/api/agents` `/api/risk` `/api/orders` `/api/execution` `/api/wallets` `/api/approvals` `/api/audit` `/api/notifications` `/api/emergency` `/api/health`\n
+# AzureX
+
+Private investment operating system for HNWI cryptocurrency and equities portfolios.
+
+Fail closed. Least privilege. Human approval. Full auditability.
+
+```
+DATA → INTELLIGENCE → AI ANALYSIS → RISK → HUMAN AUTHORIZATION → EXECUTION → AUDIT
+```
+
+## Quick start
+
+```bash
+npm install
+cp env.example .env
+npm test
+npm run dev
+```
+
+Demo: `principal@azurex.local` / `AzureX-Demo-2026!`
+
+## Production upgrades
+
+1. Durable ledger schema + Postgres/Redis compose
+2. Idempotent paper execution + prime stubs
+3. Custody policy that forbids private keys
+4. OIDC + hardware AMR + WebAuthn challenges
+5. Vault adapter + K8s network policy
+6. Ops runbooks and CI
+7. Travel rule + best execution
+
+`GET /api/platform` shows what is attached.
